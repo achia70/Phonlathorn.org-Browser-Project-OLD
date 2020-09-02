@@ -1,5 +1,4 @@
 # Welcome to Run Browser Project!
-
 ![google.com in run browser](/image/imgpreview.png)
 ## Key Features
 ###### 1. Website Display
