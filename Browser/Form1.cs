@@ -70,5 +70,158 @@ namespace Browser
         {
 
         }
+
+        private void exit_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to quit?", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+                Application.Exit();
+
+            }
+        }
+
+        private void undo_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (textBox1.CanUndo == true)
+            {
+
+                textBox1.Undo();
+                textBox1.ClearUndo();
+
+            }
+        }
+
+        private void cut_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (textBox1.SelectedText != "")
+            {
+
+                textBox1.Cut();
+
+            }
+        }
+
+        private void copy_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (textBox1.SelectionLength > 0)
+            {
+
+                textBox1.Copy();
+
+            }
+        }
+
+        private void paste_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text) == true)
+            {
+
+                textBox1.Paste();
+                Clipboard.Clear();
+
+            }
+        }
+
+        private void newwindow_mnustripitem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+
+        private void open_mnustripitem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openhtmlfile_mnustripsubitem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open HTML File";
+            theDialog.Filter = "HTML files|*.html";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Paste(theDialog.FileName.ToString());
+            }
+        }
+
+        private void file_mnustrip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openhtmfile_mnustripsubitem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open HTM File";
+            theDialog.Filter = "HTM files|*.htm";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Paste(theDialog.FileName.ToString());
+            }
+        }
+
+        private void about_mnustripitem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 aboutBox1 = new AboutBox1();
+            aboutBox1.ShowDialog();
+        }
+
+        private void home_mnustripitem_Click(object sender, EventArgs e)
+        {
+            webBrowser1.GoHome();
+        }
+
+        private void back_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (webBrowser1.CanGoBack)
+            {
+
+                webBrowser1.GoBack();
+            }
+        }
+
+        private void forward_mnustripitem_Click(object sender, EventArgs e)
+        {
+            if (webBrowser1.CanGoForward)
+            {
+
+                webBrowser1.GoForward();
+            }
+        }
+
+        private void refresh_mnustripitem_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Refresh();
+        }
+
+        private void stop_mnustripitem_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Stop();
+        }
+
+        private void go_menustripitem_Click(object sender, EventArgs e)
+        {
+            string WebPage = textBox1.Text.Trim();
+            webBrowser1.Navigate(WebPage);
+        }
+
+        MyUserSettings mus;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            mus = new MyUserSettings();
+            mus.BackgroundColor = Color.Azure;
+            this.DataBindings.Add(new Binding("BackColor", mus, "BackgroundColor"));
+        }
+
+        //Make sure to hook up this event handler in the constructor!
+        //this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+        void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mus.Save();
+        }
     }
 }

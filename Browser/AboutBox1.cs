@@ -100,6 +100,16 @@ namespace Browser
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
+
+        internal static new void ActiveForm()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
+
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

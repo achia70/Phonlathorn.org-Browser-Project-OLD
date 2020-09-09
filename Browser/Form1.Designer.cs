@@ -38,14 +38,28 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.file_mnustrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.newwindow_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.open_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openhtmlfile_mnustripsubitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openhtmfile_mnustripsubitem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ourWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exit_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edit_mnustrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.undo_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cut_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copy_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paste_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.web_mnustrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.home_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.back_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forward_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refresh_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stop_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.go_menustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.help_mnustrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.about_mnustripitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,8 +118,10 @@
             this.webBrowser1.Location = new System.Drawing.Point(12, 53);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
             this.webBrowser1.Size = new System.Drawing.Size(1018, 499);
             this.webBrowser1.TabIndex = 5;
+            this.webBrowser1.Url = new System.Uri("http://google.com", System.UriKind.Absolute);
             // 
             // button4
             // 
@@ -139,76 +155,201 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem,
-            this.menu3ToolStripMenuItem});
+            this.file_mnustrip,
+            this.edit_mnustrip,
+            this.web_mnustrip,
+            this.help_mnustrip});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1042, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // file_mnustrip
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newWindowToolStripMenuItem,
+            this.file_mnustrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newwindow_mnustripitem,
+            this.open_mnustripitem,
             this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.exit_mnustripitem});
+            this.file_mnustrip.Name = "file_mnustrip";
+            this.file_mnustrip.Size = new System.Drawing.Size(37, 20);
+            this.file_mnustrip.Text = "&File";
+            this.file_mnustrip.Click += new System.EventHandler(this.file_mnustrip_Click);
             // 
-            // newWindowToolStripMenuItem
+            // newwindow_mnustripitem
             // 
-            this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newWindowToolStripMenuItem.Text = "New Window";
-            this.newWindowToolStripMenuItem.Visible = false;
+            this.newwindow_mnustripitem.Name = "newwindow_mnustripitem";
+            this.newwindow_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newwindow_mnustripitem.Size = new System.Drawing.Size(188, 22);
+            this.newwindow_mnustripitem.Text = "&New Window";
+            this.newwindow_mnustripitem.Click += new System.EventHandler(this.newwindow_mnustripitem_Click);
+            // 
+            // open_mnustripitem
+            // 
+            this.open_mnustripitem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openhtmlfile_mnustripsubitem,
+            this.openhtmfile_mnustripsubitem});
+            this.open_mnustripitem.Name = "open_mnustripitem";
+            this.open_mnustripitem.Size = new System.Drawing.Size(188, 22);
+            this.open_mnustripitem.Text = "Open";
+            this.open_mnustripitem.Click += new System.EventHandler(this.open_mnustripitem_Click);
+            // 
+            // openhtmlfile_mnustripsubitem
+            // 
+            this.openhtmlfile_mnustripsubitem.Name = "openhtmlfile_mnustripsubitem";
+            this.openhtmlfile_mnustripsubitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openhtmlfile_mnustripsubitem.Size = new System.Drawing.Size(227, 22);
+            this.openhtmlfile_mnustripsubitem.Text = "&Open HTML file";
+            this.openhtmlfile_mnustripsubitem.Click += new System.EventHandler(this.openhtmlfile_mnustripsubitem_Click);
+            // 
+            // openhtmfile_mnustripsubitem
+            // 
+            this.openhtmfile_mnustripsubitem.Name = "openhtmfile_mnustripsubitem";
+            this.openhtmfile_mnustripsubitem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.O)));
+            this.openhtmfile_mnustripsubitem.Size = new System.Drawing.Size(227, 22);
+            this.openhtmfile_mnustripsubitem.Text = "O&pen HTM file";
+            this.openhtmfile_mnustripsubitem.Click += new System.EventHandler(this.openhtmfile_mnustripsubitem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
             // 
-            // exitToolStripMenuItem
+            // exit_mnustripitem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Visible = false;
+            this.exit_mnustripitem.Name = "exit_mnustripitem";
+            this.exit_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exit_mnustripitem.Size = new System.Drawing.Size(188, 22);
+            this.exit_mnustripitem.Text = "E&xit";
+            this.exit_mnustripitem.Click += new System.EventHandler(this.exit_mnustripitem_Click);
             // 
-            // helpToolStripMenuItem
+            // edit_mnustrip
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ourWebsiteToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.edit_mnustrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undo_mnustripitem,
+            this.cut_mnustripitem,
+            this.copy_mnustripitem,
+            this.paste_mnustripitem});
+            this.edit_mnustrip.Name = "edit_mnustrip";
+            this.edit_mnustrip.Size = new System.Drawing.Size(39, 20);
+            this.edit_mnustrip.Text = "&Edit";
             // 
-            // ourWebsiteToolStripMenuItem
+            // undo_mnustripitem
             // 
-            this.ourWebsiteToolStripMenuItem.Name = "ourWebsiteToolStripMenuItem";
-            this.ourWebsiteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ourWebsiteToolStripMenuItem.Text = "Our Website";
-            this.ourWebsiteToolStripMenuItem.Visible = false;
-            this.ourWebsiteToolStripMenuItem.Click += new System.EventHandler(this.ourWebsiteToolStripMenuItem_Click);
+            this.undo_mnustripitem.Name = "undo_mnustripitem";
+            this.undo_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undo_mnustripitem.Size = new System.Drawing.Size(144, 22);
+            this.undo_mnustripitem.Text = "&Undo";
+            this.undo_mnustripitem.Click += new System.EventHandler(this.undo_mnustripitem_Click);
             // 
-            // aboutToolStripMenuItem
+            // cut_mnustripitem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Visible = false;
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.cut_mnustripitem.Name = "cut_mnustripitem";
+            this.cut_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.cut_mnustripitem.Size = new System.Drawing.Size(144, 22);
+            this.cut_mnustripitem.Text = "&Cut";
+            this.cut_mnustripitem.Click += new System.EventHandler(this.cut_mnustripitem_Click);
             // 
-            // menu3ToolStripMenuItem
+            // copy_mnustripitem
             // 
-            this.menu3ToolStripMenuItem.Name = "menu3ToolStripMenuItem";
-            this.menu3ToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.menu3ToolStripMenuItem.Text = "Menu3";
-            this.menu3ToolStripMenuItem.Click += new System.EventHandler(this.menu3ToolStripMenuItem_Click);
+            this.copy_mnustripitem.Name = "copy_mnustripitem";
+            this.copy_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copy_mnustripitem.Size = new System.Drawing.Size(144, 22);
+            this.copy_mnustripitem.Text = "Cop&y";
+            this.copy_mnustripitem.Click += new System.EventHandler(this.copy_mnustripitem_Click);
+            // 
+            // paste_mnustripitem
+            // 
+            this.paste_mnustripitem.Name = "paste_mnustripitem";
+            this.paste_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.paste_mnustripitem.Size = new System.Drawing.Size(144, 22);
+            this.paste_mnustripitem.Text = "&Paste";
+            this.paste_mnustripitem.Click += new System.EventHandler(this.paste_mnustripitem_Click);
+            // 
+            // web_mnustrip
+            // 
+            this.web_mnustrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.home_mnustripitem,
+            this.back_mnustripitem,
+            this.forward_mnustripitem,
+            this.refresh_mnustripitem,
+            this.stop_mnustripitem,
+            this.go_menustripitem});
+            this.web_mnustrip.Name = "web_mnustrip";
+            this.web_mnustrip.Size = new System.Drawing.Size(43, 20);
+            this.web_mnustrip.Text = "&Web";
+            // 
+            // home_mnustripitem
+            // 
+            this.home_mnustripitem.Name = "home_mnustripitem";
+            this.home_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.home_mnustripitem.Size = new System.Drawing.Size(179, 22);
+            this.home_mnustripitem.Text = "&Home";
+            this.home_mnustripitem.Click += new System.EventHandler(this.home_mnustripitem_Click);
+            // 
+            // back_mnustripitem
+            // 
+            this.back_mnustripitem.Name = "back_mnustripitem";
+            this.back_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
+            this.back_mnustripitem.Size = new System.Drawing.Size(179, 22);
+            this.back_mnustripitem.Text = "&Back";
+            this.back_mnustripitem.Click += new System.EventHandler(this.back_mnustripitem_Click);
+            // 
+            // forward_mnustripitem
+            // 
+            this.forward_mnustripitem.Name = "forward_mnustripitem";
+            this.forward_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
+            this.forward_mnustripitem.Size = new System.Drawing.Size(179, 22);
+            this.forward_mnustripitem.Text = "&Forward";
+            this.forward_mnustripitem.Click += new System.EventHandler(this.forward_mnustripitem_Click);
+            // 
+            // refresh_mnustripitem
+            // 
+            this.refresh_mnustripitem.Name = "refresh_mnustripitem";
+            this.refresh_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.refresh_mnustripitem.Size = new System.Drawing.Size(179, 22);
+            this.refresh_mnustripitem.Text = "&Refresh";
+            this.refresh_mnustripitem.Click += new System.EventHandler(this.refresh_mnustripitem_Click);
+            // 
+            // stop_mnustripitem
+            // 
+            this.stop_mnustripitem.Name = "stop_mnustripitem";
+            this.stop_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.stop_mnustripitem.Size = new System.Drawing.Size(179, 22);
+            this.stop_mnustripitem.Text = "&Stop";
+            this.stop_mnustripitem.Click += new System.EventHandler(this.stop_mnustripitem_Click);
+            // 
+            // go_menustripitem
+            // 
+            this.go_menustripitem.Name = "go_menustripitem";
+            this.go_menustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Space)));
+            this.go_menustripitem.Size = new System.Drawing.Size(179, 22);
+            this.go_menustripitem.Text = "Go!";
+            this.go_menustripitem.Click += new System.EventHandler(this.go_menustripitem_Click);
+            // 
+            // help_mnustrip
+            // 
+            this.help_mnustrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.about_mnustripitem});
+            this.help_mnustrip.Name = "help_mnustrip";
+            this.help_mnustrip.Size = new System.Drawing.Size(44, 20);
+            this.help_mnustrip.Text = "&Help";
+            // 
+            // about_mnustripitem
+            // 
+            this.about_mnustripitem.Name = "about_mnustripitem";
+            this.about_mnustripitem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.about_mnustripitem.Size = new System.Drawing.Size(149, 22);
+            this.about_mnustripitem.Text = "&About";
+            this.about_mnustripitem.Click += new System.EventHandler(this.about_mnustripitem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -226,6 +367,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -249,14 +391,28 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem file_mnustrip;
+        private System.Windows.Forms.ToolStripMenuItem edit_mnustrip;
+        private System.Windows.Forms.ToolStripMenuItem newwindow_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem open_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem openhtmlfile_mnustripsubitem;
+        private System.Windows.Forms.ToolStripMenuItem openhtmfile_mnustripsubitem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ourWebsiteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menu3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exit_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem undo_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem cut_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem copy_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem paste_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem help_mnustrip;
+        private System.Windows.Forms.ToolStripMenuItem about_mnustripitem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem web_mnustrip;
+        private System.Windows.Forms.ToolStripMenuItem home_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem back_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem forward_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem refresh_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem stop_mnustripitem;
+        private System.Windows.Forms.ToolStripMenuItem go_menustripitem;
     }
 }
 
