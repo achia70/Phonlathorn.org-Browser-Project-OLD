@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace Browser
 
         private void button2_Click(object sender, EventArgs e)
         {
-            webBrowser1.GoHome();
+            webBrowser1.Navigate("http://google.com");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace Browser
         private void button1_Click(object sender, EventArgs e)
         {
             string WebPage = textBox1.Text.Trim();
-            webBrowser1.Navigate(WebPage);
+            webBrowser1.Navigate("http://" + textBox1.Text);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,7 +143,7 @@ namespace Browser
             theDialog.InitialDirectory = @"C:\";
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Paste(theDialog.FileName.ToString());
+                webBrowser1.Navigate(theDialog.FileName.ToString());
             }
         }
 
@@ -159,19 +160,19 @@ namespace Browser
             theDialog.InitialDirectory = @"C:\";
             if (theDialog.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Paste(theDialog.FileName.ToString());
+                webBrowser1.Navigate(theDialog.FileName.ToString());
             }
         }
 
         private void about_mnustripitem_Click(object sender, EventArgs e)
         {
-            AboutBox1 aboutBox1 = new AboutBox1();
-            aboutBox1.ShowDialog();
+            RunBrowser.AboutBox1 aboutBox = new RunBrowser.AboutBox1();
+            aboutBox.ShowDialog();
         }
 
         private void home_mnustripitem_Click(object sender, EventArgs e)
         {
-            webBrowser1.GoHome();
+            webBrowser1.Navigate("http://google.com");
         }
 
         private void back_mnustripitem_Click(object sender, EventArgs e)
@@ -205,7 +206,7 @@ namespace Browser
         private void go_menustripitem_Click(object sender, EventArgs e)
         {
             string WebPage = textBox1.Text.Trim();
-            webBrowser1.Navigate(WebPage);
+            webBrowser1.Navigate("http://"+textBox1.Text);
         }
 
         MyUserSettings mus;
@@ -222,6 +223,28 @@ namespace Browser
         void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             mus.Save();
+        }
+        public override System.Drawing.Size MaximumSize { get; set; }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void webBrowser1_Navigated_1(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            textBox1.Text = "" + webBrowser1.Url;
+        }
+
+        private void toolsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void composer_mnustripitem_Click(object sender, EventArgs e)
+        {
+            RunBrowser.Composer composer = new RunBrowser.Composer();
+            composer.Show();
         }
     }
 }

@@ -9,15 +9,12 @@ using System.Windows.Forms;
 
 namespace RunBrowser
 {
-    public partial class AboutBox1 : Form
+    public partial class AboutDesc1 : Form
     {
-        public AboutBox1()
+        public AboutDesc1()
         {
             InitializeComponent();
-            this.Text = String.Format("About {0}", AssemblyTitle);
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
+            this.textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
@@ -100,15 +97,14 @@ namespace RunBrowser
         }
         #endregion
 
-        private void AboutBox1_Load(object sender, EventArgs e)
+        private void AboutDesc1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void showdescButton_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            RunBrowser.AboutDesc1 aboutDesc = new RunBrowser.AboutDesc1();
-            aboutDesc.ShowDialog();
+
         }
     }
 }

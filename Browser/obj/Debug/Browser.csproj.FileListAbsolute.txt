@@ -1,4 +1,3 @@
-C:\Users\phonl\source\repos\Browser\obj\Debug\Browser.AboutBox1.resources
 C:\Users\phonl\source\repos\Browser\obj\Debug\Browser.Form1.resources
 C:\Users\phonl\source\repos\Browser\obj\Debug\Browser.csproj.GenerateResource.cache
 C:\Users\phonl\source\repos\Browser\obj\Debug\Browser.csproj.CoreCompileInputs.cache
@@ -10,3 +9,7 @@ C:\Users\phonl\source\repos\Browser\obj\Debug\RunBrowser.Properties.Resources.re
 C:\Users\phonl\source\repos\Browser\obj\Debug\Run Browser.exe
 C:\Users\phonl\source\repos\Browser\obj\Debug\Run Browser.pdb
 C:\Users\phonl\source\repos\Browser\obj\Debug\RunBrowser.Form2.resources
+C:\Users\phonl\source\repos\Browser\obj\Debug\RunBrowser.AboutBox1.resources
+C:\Users\phonl\source\repos\Browser\obj\Debug\RunBrowser.AboutDesc1.resources
+C:\Users\phonl\source\repos\Browser\obj\Debug\RunBrowser.Tool.resources
+C:\Users\phonl\source\repos\Browser\obj\Debug\RunBrowser.Composer.resources
