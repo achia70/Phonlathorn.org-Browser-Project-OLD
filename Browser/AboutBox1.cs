@@ -110,5 +110,11 @@ namespace RunBrowser
             RunBrowser.AboutDesc1 aboutDesc = new RunBrowser.AboutDesc1();
             aboutDesc.ShowDialog();
         }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            RunBrowser.Form2 form2 = new RunBrowser.Form2();
+            form2.Show();
+        }
     }
 }
